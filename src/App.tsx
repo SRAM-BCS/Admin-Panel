@@ -1,26 +1,34 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useEffect } from 'react';
+import logo from './logo.svg'; 
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Navigate,
+  Outlet,
+} from "react-router-dom";
 import './App.css';
-
+import Login from './Components/Login';
 function App() {
+  useEffect(() => {
+    document.cookie = "foxxi-jwt"+"token"
+  })
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Routes>
+        <Route path="/login" element={<Login/>} />
+        {/* <Route path="/login" element={<LoginPage />} /> */}
+          <Route
+            path="/"
+            element={
+              <>
+                <main className="h-screen w-screen grid grid-cols-[18%_82%]">
+                </main>
+              </>
+            }
+          />
+      </Routes>  
     </div>
-  );
-}
+)}
 
 export default App;
