@@ -9,15 +9,15 @@ import {
 } from "react-router-dom";
 import './App.css';
 import Login from './Components/Login';
+import Navbar from './Components/Navbar';
 function App() {
   useEffect(() => {
     document.cookie = "foxxi-jwt"+"token"
   })
   return (
     <div className="App">
-      <Routes>
+      {/* <Routes>
         <Route path="/login" element={<Login/>} />
-        {/* <Route path="/login" element={<LoginPage />} /> */}
           <Route
             path="/"
             element={
@@ -27,7 +27,9 @@ function App() {
               </>
             }
           />
-      </Routes>  
+      </Routes>   */}
+      <Navbar/>
+      <Login/>
     </div>
 )}
 

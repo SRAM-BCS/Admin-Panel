@@ -8,12 +8,13 @@ const AuthPage: React.FC = () => {
     // Handle login logic here
   };
 
+  
   return (
     <div className="flex items-center justify-center h-screen">
-      <div className="w-full max-w-xs">
-        <form className="bg-#F0F2F0 shadow-md rounded px-8 pt-6 pb-8 mb-4">
-          <div className="mb-4">
-            <label className="block  text-gray-700 text-sm font-bold mb-2" htmlFor="email">
+      <div className="w-full max-w-md">
+        <form className="bg-#2c3e50 shadow-md rounded px-8 pt-6 pb-8 mb-4 h-full">
+          <div className="mb-6">
+            <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="email">
               Email
             </label>
             <input
@@ -51,6 +52,5 @@ const AuthPage: React.FC = () => {
       </div>
     </div>
   );
-};
-
+}
 export default AuthPage;
