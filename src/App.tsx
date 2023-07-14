@@ -13,6 +13,7 @@ import Login from "./Components/Login";
 import Navbar from "./Components/Navbar";
 import StudentDashboard from "./Components/StudentDashboard";
 import Layout from "./Components/Layout";
+import RequestPanelPage from "./Components/ReqeustPanel";
 function App() {
   useEffect(() => {
     document.cookie = "foxxi-jwt" + "token";
@@ -25,6 +26,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Login />} />
           <Route path="/student-dashboard" element={<StudentDashboard />} />
+          <Route path="/student/request-panel" element={<RequestPanelPage />} />
         </Routes>
       </BrowserRouter>
     </div>

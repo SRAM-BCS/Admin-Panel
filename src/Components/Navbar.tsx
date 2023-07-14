@@ -1,4 +1,5 @@
 import React from "react";
+import Logo from "../assets/iiitm.png";
 interface NavProps {
   currentUser: any;
 }
@@ -22,7 +23,7 @@ const Navbar: React.FC<NavProps> = ({ currentUser }) => {
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
         <a href="#" className="flex items-center">
           <span className="self-center text-2xl font-semibold whitespace-nowrap text-white">
-            Logo
+            <img src={Logo} alt="Logo" width={45} height={25} />
           </span>
         </a>
         <button
