@@ -16,18 +16,9 @@ export const studentNavItems: NavItem[] = [
   },
 ];
 const StudentDashboardPage: React.FC = () => {
-  const [currentPage, setCurrentPage] = useState(1);
-  const totalPages = 10;
-  const handlePageChange = (pageNumber: number) => {
-    setCurrentPage(pageNumber);
-  };
   return (
     <Layout header={"STUDENT"} navItems={studentNavItems}>
-      <StudentDetailContainer
-        currentPage={currentPage}
-        totalPages={totalPages}
-        onPageChange={handlePageChange}
-      />
+      <StudentDetailContainer />
     </Layout>
   );
 };

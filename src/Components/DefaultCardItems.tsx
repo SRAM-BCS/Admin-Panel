@@ -9,6 +9,15 @@ export type CardProperties = {
   idImage?: any;
 };
 
+export type FacultyCardProperties = {
+  name: string;
+  email: string;
+  facultyCode: string;
+};
+
+export type AdminCardProperties = {
+  email: string;
+};
 export const DefaultCardItems: CardProperties[] = [
   {
     name: "Deepak Rai",
@@ -19,5 +28,19 @@ export const DefaultCardItems: CardProperties[] = [
       "https://res.cloudinary.com/dbuut0gfp/image/upload/v1690187566/gii16sepleuvslnnwv50.jpg",
     idImage:
       "https://res.cloudinary.com/dbuut0gfp/image/upload/v1689365241/yulckyhpyojfumymzvln.jpg",
+  },
+];
+
+export const DefaultFacultyCardItems: FacultyCardProperties[] = [
+  {
+    name: "Aaroh Srivastava",
+    email: "bcs_2021022@iiitm.ac.in",
+    facultyCode: "AS",
+  },
+];
+
+export const DefaultAdminCardItems: AdminCardProperties[] = [
+  {
+    email: "bcs_2021001@iiitm.ac.in",
   },
 ];

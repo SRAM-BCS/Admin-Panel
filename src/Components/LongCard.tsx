@@ -5,7 +5,7 @@ import { Card } from "flowbite-react";
 const RequestLongCard = ({ details = DefaultCardItems[0] }) => {
   return (
     <Card>
-      <div className="flex flex-row justify-end px-4 pt-4 mx-4 my-4"></div>
+      <div className="flex flex-row justify-end px-4 mx-4"></div>
       <img
         alt="Profile image"
         className="mb-3 rounded-full shadow-lg"
