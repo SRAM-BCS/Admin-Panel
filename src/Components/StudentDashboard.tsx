@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Layout from "./Layout";
 import { NavItem } from "./DefaultNavItems";
 import {
@@ -8,6 +8,9 @@ import {
   UserGroupIcon,
   UserIcon,
 } from "@heroicons/react/24/outline";
+import { useAuth } from "../AuthContext";
+import { getToken } from "../Services/GetToken";
+
 export const studentNavItems: NavItem[] = [
   {
     label: "Student Dashboard",
@@ -21,6 +24,15 @@ export const studentNavItems: NavItem[] = [
   },
 ];
 const StudentDashboardPage: React.FC = () => {
+  const authCtx = useAuth();
+  useEffect(() => {
+    const token = getToken()
+    if (!token) {
+      alert("No token found");
+      authCtx.logout()
+    }
+  }, [])
+
   return <Layout header={"STUDENT"} navItems={studentNavItems}></Layout>;
 };
 

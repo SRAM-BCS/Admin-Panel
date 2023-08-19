@@ -1,12 +1,23 @@
-import React, { useState } from "react";
+import React, { FormEvent, useState } from "react";
+import { useAuth } from "../AuthContext";
+import { useNavigate } from 'react-router-dom';
 
 const AuthPage: React.FC = () => {
+  const navigate = useNavigate(); // Initialize useNavigate
+  const { login } = useAuth();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [hover, setHover] = useState(false);
   const [passwordHidden, setPasswordHidden] = useState(true);
-  const handleLogin = () => {
+  const handleLogin = async(e:FormEvent) => {
     // Handle login logic here
+    e.preventDefault()
+    if (!email || !password) return alert("Please fill in all fields")
+    else
+    {
+      await login(email, password)
+      navigate("/student-dashboard")
+    }
   };
 
   return (
