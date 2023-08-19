@@ -1,13 +1,8 @@
 import React, { useState } from "react";
 import Layout from "./Layout";
 import { NavItem } from "./DefaultNavItems";
-import {
-  CalendarIcon,
-  FolderIcon,
-  InboxIcon,
-  UserGroupIcon,
-  UserIcon,
-} from "@heroicons/react/24/outline";
+import { InboxIcon, UserIcon } from "@heroicons/react/24/outline";
+import StudentDetailContainer from "./StudentDetailContainer";
 export const studentNavItems: NavItem[] = [
   {
     label: "Student Dashboard",
@@ -21,7 +16,20 @@ export const studentNavItems: NavItem[] = [
   },
 ];
 const StudentDashboardPage: React.FC = () => {
-  return <Layout header={"STUDENT"} navItems={studentNavItems}></Layout>;
+  const [currentPage, setCurrentPage] = useState(1);
+  const totalPages = 10;
+  const handlePageChange = (pageNumber: number) => {
+    setCurrentPage(pageNumber);
+  };
+  return (
+    <Layout header={"STUDENT"} navItems={studentNavItems}>
+      <StudentDetailContainer
+        currentPage={currentPage}
+        totalPages={totalPages}
+        onPageChange={handlePageChange}
+      />
+    </Layout>
+  );
 };
 
 export default StudentDashboardPage;

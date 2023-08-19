@@ -27,12 +27,6 @@ const RequestPanelPage: React.FC = () => {
     <Layout header={"STUDENT"} navItems={studentNavItems}>
       <div className="p-9  grid lg:gap-4 lg:grid-cols-4 md:gap-3 md:grid-cols-3 sm:gap-4 sm:grid-cols-1">
         <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
       </div>
     </Layout>
   );
