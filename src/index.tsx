@@ -4,9 +4,8 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { QueryClient, QueryClientProvider } from "react-query";
-
-const queryClient = new QueryClient();
 import { AuthProvider } from './AuthContext';
+const queryClient = new QueryClient();
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
 );
