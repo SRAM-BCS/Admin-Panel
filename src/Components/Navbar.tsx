@@ -104,6 +104,18 @@ const Navbar: React.FC<NavProps> = ({ currentUser }) => {
                   Classroom
                 </a>
               </li>
+              <li>
+                <span
+                  className={
+                    "block py-2 pl-3 pr-4 rounded md:border-0 md:p-0 text-white hover:text-blue-500"
+                  }
+                  onClick={() => {
+                    // logic to logout
+                  }}
+                >
+                  Logout
+                </span>
+              </li>
             </ul>
           ) : null}
         </div>
