@@ -1,10 +1,8 @@
 import React, { useState } from "react";
 import { DefaultCardItems, CardProperties } from "./DefaultCardItems";
 import { Card, Dropdown } from "flowbite-react";
-type Props = {
-  details: CardProperties;
-};
-const RequestCard = ({ details = DefaultCardItems }) => {
+
+const RequestCard = ({ details = DefaultCardItems[0] }) => {
   return (
     <Card>
       <div className="flex justify-end px-4 pt-4">
@@ -27,28 +25,28 @@ const RequestCard = ({ details = DefaultCardItems }) => {
             alt="Profile image"
             className="mb-3 rounded-full shadow-lg"
             height="96"
-            src="/images/people/profile-picture-3.jpg"
+            src={details?.profileImage}
             width="96"
           />
         </div>
         <h5 className="mb-1 text-xl font-medium text-gray-900 dark:text-white">
-          Student Name
+          {details?.name}
         </h5>
         <span className="text-sm text-gray-500 dark:text-gray-400">
-          BTech Computer Science
+          {details?.branch}
         </span>
         <div className="flex flex-row gap-2">
           <label className="font-bold">Roll No-</label>
-          <span>2021BCS-021</span>
+          <span>{details.roll}</span>
         </div>
         <div className="flex flex-row gap-2">
           <label className="font-bold">Email-</label>
-          <span>bcs_2021021@iiitm.ac.in</span>
+          <span>{details.email}</span>
         </div>
         <div className="flex flex-row gap-2">
           <label className="font-bold">ID Proof-</label>
-          <a href="https://cloudinary-link" target="_blank">
-            https://cloudinary-link
+          <a href={details?.idImage} target="_blank">
+            <span>View</span>
           </a>
         </div>
       </div>
