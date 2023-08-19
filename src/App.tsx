@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import logo from "./logo.svg";
 import {
   BrowserRouter as Router,
@@ -23,14 +23,18 @@ import AddBatchComponent from "./Components/AddBatchComponent";
 import BatchAddPage from "./Components/AddBatch";
 import CourseAddPage from "./Components/AddCourse";
 import GenerateQR from "./Components/GenerateQR";
+import { getToken } from "./Services/GetToken";
 function App() {
+  const [token, setToken] = useState<string>("");
   useEffect(() => {
-    document.cookie = "foxxi-jwt" + "token";
-  });
+    const jwt = getToken();
+    console.log(jwt);
+    setToken(jwt);
+  }, [token]);
   const currentUser = "user-object";
   return (
     <div className="App">
-      <Navbar currentUser={currentUser} />
+      <Navbar currentUser={token} />
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Login />} />
