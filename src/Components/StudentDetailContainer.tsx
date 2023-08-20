@@ -6,14 +6,15 @@ type Props = {
   totalPages: number;
   onPageChange: any;
 };
+type StudentLists = {
+
+}
+
 const StudentDetailContainer = () => {
   return (
     <div>
       {/* Your paginated content goes here */}
       <div className="flex flex-col gap-6 mx-12 my-10">
-        <RequestLongCard />
-        <RequestLongCard />
-        <RequestLongCard />
       </div>
     </div>
   );
