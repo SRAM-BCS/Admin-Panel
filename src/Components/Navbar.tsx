@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
 import Logo from "../assets/iiitm.png";
+import { useAuth } from "../AuthContext";
 interface NavProps {
   currentUser: any;
 }
 const Navbar: React.FC<NavProps> = ({ currentUser }) => {
+  const authCtx = useAuth()
   const [url, setUrl] = useState(window?.location?.href);
   const navStyle: React.CSSProperties = {
     background: "#222831",
@@ -110,7 +112,7 @@ const Navbar: React.FC<NavProps> = ({ currentUser }) => {
                     "block py-2 pl-3 pr-4 rounded md:border-0 md:p-0 text-white hover:text-blue-500"
                   }
                   onClick={() => {
-                    // logic to logout
+                    authCtx.logout()
                   }}
                 >
                   Logout
@@ -123,5 +125,5 @@ const Navbar: React.FC<NavProps> = ({ currentUser }) => {
     </nav>
   );
 };
-
 export default Navbar;
+

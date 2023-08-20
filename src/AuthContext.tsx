@@ -35,10 +35,6 @@ interface AuthProviderProps {
 
 export function AuthProvider({ children }: AuthProviderProps): JSX.Element {
   const [user, setUser] = useState<User | null>(null);
-  const jwtToken = getToken()
-  if (jwtToken) {
-    setUser({ token:jwtToken });
-  }
   const login = async (email: string, password: string): Promise<void> => {
     try {
       // Make API call to login
@@ -62,13 +58,12 @@ export function AuthProvider({ children }: AuthProviderProps): JSX.Element {
       console.error("Login error:", error);
       alert("Login Error");
       window.location.reload();
-      return;
     }
   };
 
   const logout = (): void => {
     setUser(null);
-    document.cookie=""
+    deleteAllCookies()
     alert("Signing out");
       window.location.href="/"
   };
@@ -82,3 +77,15 @@ export function AuthProvider({ children }: AuthProviderProps): JSX.Element {
   return <Provider value={value}>{children}</Provider>;
 };
 
+function deleteAllCookies(): void {
+    const cookies: string[] = document.cookie.split("; ");
+
+    for (const cookie of cookies) {
+        const eqPos: number = cookie.indexOf("=");
+        const name: string = eqPos > -1 ? cookie.substr(0, eqPos) : cookie;
+        document.cookie = `${name}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;`;
+    }
+}
+
+// Call the function to delete all cookies
+deleteAllCookies();

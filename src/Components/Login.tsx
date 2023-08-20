@@ -3,7 +3,7 @@ import { useAuth } from "../AuthContext";
 import { useNavigate } from 'react-router-dom';
 
 const AuthPage: React.FC = () => {
-  const navigate = useNavigate(); // Initialize useNavigate
+  const navigate = useNavigate(); // Initialize useNavigate hook
   const { login } = useAuth();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");

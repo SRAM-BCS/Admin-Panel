@@ -27,10 +27,11 @@ import { getToken } from "./Services/GetToken";
 function App() {
   const [token, setToken] = useState<string>("");
   useEffect(() => {
+    console.log("useEffect")
     const jwt = getToken();
     console.log(jwt);
     setToken(jwt);
-  }, [token]);
+  }, []);
   const currentUser = "user-object";
   return (
     <div className="App">
