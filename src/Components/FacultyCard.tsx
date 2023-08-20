@@ -9,7 +9,7 @@ const FacultyCard = ({ details = DefaultFacultyCardItems[0] }) => {
         {details?.name}
       </h5>
       <span className="flex text-sm text-gray-500 dark:text-gray-400">
-        {details?.facultyCode}
+        {details?.code}
       </span>
       <div className="flex gap-2">
         <label className="font-bold">Email-</label>

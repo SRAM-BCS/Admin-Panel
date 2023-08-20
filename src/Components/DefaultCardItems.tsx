@@ -12,7 +12,7 @@ export type CardProperties = {
 export type FacultyCardProperties = {
   name: string;
   email: string;
-  facultyCode: string;
+  code: string;
 };
 
 export type AdminCardProperties = {
@@ -34,8 +34,8 @@ export const DefaultCardItems: CardProperties[] = [
 export const DefaultFacultyCardItems: FacultyCardProperties[] = [
   {
     name: "Aaroh Srivastava",
-    email: "bcs_2021022@iiitm.ac.in",
-    facultyCode: "AS",
+    email: "bcs_2021022@iiitm.ac.in", 
+    code: "AS",
   },
 ];
 

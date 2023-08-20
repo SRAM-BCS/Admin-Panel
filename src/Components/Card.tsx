@@ -1,14 +1,35 @@
-import React, { useState } from "react";
+import React, { useState,FormEvent } from "react";
 import { DefaultCardItems, CardProperties } from "./DefaultCardItems";
 import { Card, Dropdown } from "flowbite-react";
+import { toast } from 'react-toastify';
+import { getToken } from "../Services/GetToken";
 
-const RequestCard = ({ details = DefaultCardItems[0] }) => {
+const RequestCard = ({ details = DefaultCardItems[0], token="" }) => {
+
+  const handleApiCall = async (status: number) => {
+
+  }
+  const handleClick = async (status: number,e:FormEvent) => {
+    e.preventDefault();
+    alert("accept")
+    const token = getToken()
+    toast.info(`Are you sure you want to ${status}?Accept:Reject this Request?`, {
+      position: 'top-center',
+      autoClose: false,
+      hideProgressBar: true,
+      closeOnClick: false,
+      pauseOnHover: false,
+      draggable: false,
+      progress: undefined,
+      onClose: () => handleApiCall(status),
+    });
+  }
   return (
     <Card>
       <div className="flex justify-end px-4 pt-4">
         <Dropdown inline label="">
           <Dropdown.Item>
-            <div className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-600 dark:hover:text-white">
+            <div className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-600 dark:hover:text-white" onClick={(e:FormEvent)=>handleClick(1,e)}>
               <p>Accept</p>
             </div>
           </Dropdown.Item>
