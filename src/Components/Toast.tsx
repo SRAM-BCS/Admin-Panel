@@ -4,7 +4,7 @@ import React from "react";
 
 interface CustomToastProps {
   text: string;
-  onYesClick: (data:any) => void;
+  onYesClick: () => void;
   onNoClick: () => void;
 }
 

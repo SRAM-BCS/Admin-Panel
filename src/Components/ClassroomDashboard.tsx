@@ -29,6 +29,11 @@ export const classroomNavItems: NavItem[] = [
     href: "/classroom/generate-qr",
     icon: <QrCodeIcon className="w-6 h-6" />,
   },
+  {
+    label: "Faculty Batch Course Panel",
+    href: "/faculty/add-faculty-batch-course",
+    icon: <FolderPlusIcon className="w-6 h-6" />,
+  },
 ];
 
 const ClassroomDashboardPage: React.FC = () => {

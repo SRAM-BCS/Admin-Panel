@@ -22,7 +22,9 @@ import ClassroomDashboardPage from "./Components/ClassroomDashboard";
 import BatchAddPage from "./Components/AddBatch";
 import CourseAddPage from "./Components/AddCourse";
 import GenerateQR from "./Components/GenerateQR";
+import { ToastContainer } from "react-toastify";
 import { getToken } from "./Services/GetToken";
+import AddBatchCourseFaculty from "./Components/AddBatchCourseFaculty";
 function App() {
   const [token, setToken] = useState<string>("");
   useEffect(() => {
@@ -49,8 +51,13 @@ function App() {
           <Route path="/classroom/add-batch" element={<BatchAddPage />} />
           <Route path="/classroom/add-course" element={<CourseAddPage />} />
           <Route path="/classroom/generate-qr" element={<GenerateQR />} />
+          <Route
+            path="/classroom/batch-course-faculty"
+            element={<AddBatchCourseFaculty />}
+          />
         </Routes>
       </BrowserRouter>
+      <ToastContainer />
     </div>
   );
 }

@@ -7,7 +7,7 @@ import CustomToast from "./Toast";
 const RequestCard = ({ details = DefaultCardItems[0], token = "" }) => {
   const handleApiCall = async (status: number) => {};
 
-  const handleClick = async (status: number) => {
+  const handleClick = (status: number) => {
     toast(
       <CustomToast
         text={`Are you sure you want to ${
@@ -30,7 +30,7 @@ const RequestCard = ({ details = DefaultCardItems[0], token = "" }) => {
           <Dropdown.Item>
             <div
               className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-600 dark:hover:text-white"
-              onClick={(e: FormEvent) => handleClick(1)}
+              onClick={() => handleClick(1)}
             >
               <p>Accept</p>
             </div>
@@ -38,7 +38,7 @@ const RequestCard = ({ details = DefaultCardItems[0], token = "" }) => {
           <Dropdown.Item>
             <div
               className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-600 dark:hover:text-white"
-              onClick={(e: FormEvent) => handleClick(0)}
+              onClick={() => handleClick(0)}
             >
               <p>Deny</p>
             </div>
