@@ -6,6 +6,9 @@ import {
   FolderPlusIcon,
   PlusCircleIcon,
   QrCodeIcon,
+  ArchiveBoxIcon,
+  CircleStackIcon,
+  Squares2X2Icon,
 } from "@heroicons/react/24/outline";
 import ClassroomCard from "./ClassroomCard";
 
@@ -14,6 +17,21 @@ export const classroomNavItems: NavItem[] = [
     label: "Classroom Dashboard",
     href: "/classroom-dashboard",
     icon: <UserIcon className="w-6 h-6" />,
+  },
+  {
+    label: "Batch Dashboard",
+    href: "/batch-dashboard",
+    icon: <ArchiveBoxIcon className="w-6 h-6" />,
+  },
+  {
+    label: "Course Dashboard",
+    href: "/course-dashboard",
+    icon: <Squares2X2Icon className="w-6 h-6" />,
+  },
+  {
+    label: "F-C-B Dashboard",
+    href: "/fcb-dashboard",
+    icon: <CircleStackIcon className="w-6 h-6" />,
   },
   {
     label: "Add Batch Panel",
@@ -31,7 +49,7 @@ export const classroomNavItems: NavItem[] = [
     icon: <QrCodeIcon className="w-6 h-6" />,
   },
   {
-    label: "Faculty Batch Course Panel",
+    label: "Add F-B-C Panel",
     href: "/classroom/add-fac-batch-course",
     icon: <FolderPlusIcon className="w-6 h-6" />,
   },

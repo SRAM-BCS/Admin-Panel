@@ -26,6 +26,9 @@ import { ToastContainer } from "react-toastify";
 import { getToken } from "./Services/GetToken";
 import "react-toastify/dist/ReactToastify.css";
 import AddBatchCourseFaculty from "./Components/AddBatchCourseFaculty";
+import BatchDashboardPage from "./Components/BatchDashboard";
+import CourseDashboardPage from "./Components/CourseDashboard";
+import FCBDashboardPage from "./Components/FCBDashboard";
 function App() {
   const [token, setToken] = useState<string>("");
   useEffect(() => {
@@ -56,6 +59,9 @@ function App() {
             path="/classroom/add-fac-batch-course"
             element={<AddBatchCourseFaculty />}
           />
+          <Route path="/batch-dashboard" element={<BatchDashboardPage />} />
+          <Route path="/course-dashboard" element={<CourseDashboardPage />} />
+          <Route path="/fcb-dashboard" element={<FCBDashboardPage />} />
         </Routes>
       </BrowserRouter>
       <ToastContainer />

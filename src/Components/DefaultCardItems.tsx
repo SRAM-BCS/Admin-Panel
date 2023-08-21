@@ -23,6 +23,17 @@ export type ClassroomCardProperties = {
   classRoom: string;
   qrCode: string;
 };
+
+export type BatchAndCourseCardProperties = {
+  title: string;
+  code: string;
+};
+
+export type FCBCardProperties = {
+  faculty: string;
+  batch: string;
+  course: string;
+};
 export const DefaultCardItems: CardProperties[] = [
   {
     name: "Deepak Rai",
@@ -55,5 +66,20 @@ export const DefaultClassroomCardItems: ClassroomCardProperties[] = [
     classRoom: "B-205",
     qrCode:
       "https://res.cloudinary.com/dbuut0gfp/image/upload/v1690187566/gii16sepleuvslnnwv50.jpg",
+  },
+];
+
+export const DefaultBatchAndCourseCardItems: BatchAndCourseCardProperties[] = [
+  {
+    title: "2021BCS",
+    code: "2021",
+  },
+];
+
+export const DefaultFCBCardItems: FCBCardProperties[] = [
+  {
+    faculty: "AS",
+    course: "Discrete Maths",
+    batch: "2021BCS",
   },
 ];
