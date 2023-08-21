@@ -58,7 +58,11 @@ const RequestPanelPage: React.FC = () => {
   return (
     <Layout header={"STUDENT"} navItems={studentNavItems}>
       <div className="p-9  grid lg:gap-4 lg:grid-cols-4 md:gap-3 md:grid-cols-3 sm:gap-4 sm:grid-cols-1">
-        {requests.length ? requests.map((request: any) => {return <></>}):"No Requests"}
+        {requests.length
+          ? requests.map((request: any) => {
+              return <></>;
+            })
+          : "No Requests"}
         <Card />
       </div>
     </Layout>

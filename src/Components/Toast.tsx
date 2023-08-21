@@ -16,9 +16,19 @@ const CustomToast: React.FC<CustomToastProps> = ({
   return (
     <div>
       {text}
-      <div>
-        <button onClick={onYesClick}>Yes</button>
-        <button onClick={onNoClick}>No</button>
+      <div className="flex flex-row justify-content items-center content-center text-center gap-6">
+        <button
+          className="inline py-3 px-6 bg-blue-500 m-auto"
+          onClick={onYesClick}
+        >
+          Yes
+        </button>
+        <button
+          className="inline py-3 px-6 bg-red-500 m-auto"
+          onClick={onNoClick}
+        >
+          No
+        </button>
       </div>
     </div>
   );

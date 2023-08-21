@@ -24,6 +24,7 @@ import CourseAddPage from "./Components/AddCourse";
 import GenerateQR from "./Components/GenerateQR";
 import { ToastContainer } from "react-toastify";
 import { getToken } from "./Services/GetToken";
+import "react-toastify/dist/ReactToastify.css";
 import AddBatchCourseFaculty from "./Components/AddBatchCourseFaculty";
 function App() {
   const [token, setToken] = useState<string>("");
