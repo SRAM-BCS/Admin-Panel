@@ -1,6 +1,7 @@
-import React, { FormEvent, useState } from "react";
+import React, { FormEvent, useEffect, useState } from "react";
 import { useAuth } from "../AuthContext";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
+import { getToken } from "../Services/GetToken";
 
 const AuthPage: React.FC = () => {
   const navigate = useNavigate(); // Initialize useNavigate hook
@@ -9,17 +10,21 @@ const AuthPage: React.FC = () => {
   const [password, setPassword] = useState("");
   const [hover, setHover] = useState(false);
   const [passwordHidden, setPasswordHidden] = useState(true);
-  const handleLogin = async(e:FormEvent) => {
+  const handleLogin = async (e: FormEvent) => {
     // Handle login logic here
-    e.preventDefault()
-    if (!email || !password) return alert("Please fill in all fields")
-    else
-    {
-      await login(email, password)
-      navigate("/student-dashboard")
+    e.preventDefault();
+    if (!email || !password) return alert("Please fill in all fields");
+    else {
+      await login(email, password);
+      navigate("/student-dashboard");
     }
   };
-
+  useEffect(() => {
+    const jwt = getToken();
+    if (jwt) {
+      navigate("/student-dashboard");
+    }
+  }, []);
   return (
     <div className="flex items-center justify-center h-full mt-12">
       <div className="w-full max-w-md">

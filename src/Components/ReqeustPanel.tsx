@@ -30,7 +30,7 @@ const RequestPanelPage: React.FC = () => {
   useEffect(() => {
     async function getRequests(token: string) {
       const response = await fetch(
-        "http://127.0.0.1:8000/api/admin/student/status/pending",
+        process.env.REACT_APP_BACKEND_URL + "/admin/student/status/pending",
         {
           method: "GET",
           headers: {

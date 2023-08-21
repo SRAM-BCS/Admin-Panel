@@ -16,7 +16,7 @@ const FacultyAddPage: React.FC = () => {
         alert("Please fill all the fields");
       } else {
         const response = await fetch(
-          "http://127.0.0.1:8000/api/admin/faculty/new",
+          process.env.REACT_APP_BACKEND_URL + "/admin/faculty/new",
           {
             method: "POST",
             body: JSON.stringify({ name, email }),

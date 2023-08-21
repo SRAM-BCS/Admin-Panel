@@ -38,13 +38,17 @@ export function AuthProvider({ children }: AuthProviderProps): JSX.Element {
   const login = async (email: string, password: string): Promise<void> => {
     try {
       // Make API call to login
-      const response = await fetch("http://127.0.0.1:8000/api/admin/login/", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ email, password }),
-      });
+      console.log(process.env.REACT_APP_BACKEND_URL + "/admin/login/");
+      const response = await fetch(
+        process.env.REACT_APP_BACKEND_URL + "/admin/login/",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ email, password }),
+        }
+      );
       if (response.ok) {
         const userData: User = await response.json();
         setUser({ token: userData.token });

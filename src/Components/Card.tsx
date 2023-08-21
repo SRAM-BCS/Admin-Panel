@@ -1,40 +1,45 @@
 import React, { useState,FormEvent } from "react";
 import { DefaultCardItems, CardProperties } from "./DefaultCardItems";
-import { Card, Dropdown } from "flowbite-react";
-import { toast } from 'react-toastify';
+import { Card, Dropdown, Toast } from "flowbite-react";
+import { toast } from "react-toastify";
 import { getToken } from "../Services/GetToken";
+import CustomToast from "./Toast";
+const RequestCard = ({ details = DefaultCardItems[0], token = "" }) => {
+  const handleApiCall = async (status: number) => {};
 
-const RequestCard = ({ details = DefaultCardItems[0], token="" }) => {
-
-  const handleApiCall = async (status: number) => {
-
-  }
-  const handleClick = async (status: number,e:FormEvent) => {
-    e.preventDefault();
-    alert("accept")
-    const token = getToken()
-    toast.info(`Are you sure you want to ${status}?Accept:Reject this Request?`, {
-      position: 'top-center',
-      autoClose: false,
-      hideProgressBar: true,
-      closeOnClick: false,
-      pauseOnHover: false,
-      draggable: false,
-      progress: undefined,
-      onClose: () => handleApiCall(status),
-    });
-  }
+  const handleClick = async (status: number) => {
+    toast(
+      <CustomToast
+        text={`Are you sure you want to ${
+          status ? "Accept" : "Reject"
+        } this Request?`}
+        onYesClick={() => {
+          handleApiCall(status);
+        }}
+        onNoClick={() => {
+          alert("no");
+        }}
+      />,
+      { position: "top-center", autoClose: false }
+    );
+  };
   return (
     <Card>
       <div className="flex justify-end px-4 pt-4">
         <Dropdown inline label="">
           <Dropdown.Item>
-            <div className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-600 dark:hover:text-white" onClick={(e:FormEvent)=>handleClick(1,e)}>
+            <div
+              className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-600 dark:hover:text-white"
+              onClick={(e: FormEvent) => handleClick(1)}
+            >
               <p>Accept</p>
             </div>
           </Dropdown.Item>
           <Dropdown.Item>
-            <div className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-600 dark:hover:text-white">
+            <div
+              className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-600 dark:hover:text-white"
+              onClick={(e: FormEvent) => handleClick(0)}
+            >
               <p>Deny</p>
             </div>
           </Dropdown.Item>

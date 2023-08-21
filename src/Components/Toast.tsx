@@ -1,21 +1,27 @@
-import React from 'react';
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+// CustomToast.tsx
 
-const ToastNotification: React.FC = () => {
+import React from "react";
+
+interface CustomToastProps {
+  text: string;
+  onYesClick: (data:any) => void;
+  onNoClick: () => void;
+}
+
+const CustomToast: React.FC<CustomToastProps> = ({
+  text,
+  onYesClick,
+  onNoClick,
+}) => {
   return (
-    <ToastContainer
-      position="bottom-right"
-      autoClose={3000}
-      hideProgressBar={false}
-      newestOnTop={false}
-      closeOnClick
-      rtl={false}
-      pauseOnFocusLoss
-      draggable
-      pauseOnHover
-    />
+    <div>
+      {text}
+      <div>
+        <button onClick={onYesClick}>Yes</button>
+        <button onClick={onNoClick}>No</button>
+      </div>
+    </div>
   );
 };
 
-export default ToastNotification;
+export default CustomToast;

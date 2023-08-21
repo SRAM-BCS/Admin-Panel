@@ -32,12 +32,12 @@ const StudentDashboardPage: React.FC = () => {
       try {
         // Make API call to login
         const response = await fetch(
-          "http://127.0.0.1:8000/api/student/get/all/",
+          process.env.REACT_APP_BACKEND_URL + "/student/get/all/",
           {
             method: "GET",
             headers: {
               "Content-Type": "application/json",
-              "Authorization": token,
+              Authorization: token,
             },
           }
         );

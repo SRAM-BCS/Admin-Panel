@@ -19,7 +19,6 @@ import FacultyAddPage from "./Components/AddFaculty";
 import AdminDashboardPage from "./Components/AdminDashboard";
 import AdminAddPage from "./Components/AddAdmin";
 import ClassroomDashboardPage from "./Components/ClassroomDashboard";
-import AddBatchComponent from "./Components/AddBatchComponent";
 import BatchAddPage from "./Components/AddBatch";
 import CourseAddPage from "./Components/AddCourse";
 import GenerateQR from "./Components/GenerateQR";
@@ -27,9 +26,7 @@ import { getToken } from "./Services/GetToken";
 function App() {
   const [token, setToken] = useState<string>("");
   useEffect(() => {
-    console.log("useEffect")
     const jwt = getToken();
-    console.log(jwt);
     setToken(jwt);
   }, []);
   const currentUser = "user-object";
