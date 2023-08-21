@@ -31,7 +31,7 @@ export const classroomNavItems: NavItem[] = [
   },
   {
     label: "Faculty Batch Course Panel",
-    href: "/faculty/add-faculty-batch-course",
+    href: "/classroom/add-fac-batch-course",
     icon: <FolderPlusIcon className="w-6 h-6" />,
   },
 ];

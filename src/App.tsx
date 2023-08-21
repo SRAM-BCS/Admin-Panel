@@ -52,7 +52,7 @@ function App() {
           <Route path="/classroom/add-course" element={<CourseAddPage />} />
           <Route path="/classroom/generate-qr" element={<GenerateQR />} />
           <Route
-            path="/classroom/batch-course-faculty"
+            path="/classroom/add-fac-batch-course"
             element={<AddBatchCourseFaculty />}
           />
         </Routes>
