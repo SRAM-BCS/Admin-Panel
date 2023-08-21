@@ -7,6 +7,7 @@ import {
   PlusCircleIcon,
   QrCodeIcon,
 } from "@heroicons/react/24/outline";
+import ClassroomCard from "./ClassroomCard";
 
 export const classroomNavItems: NavItem[] = [
   {
@@ -39,7 +40,9 @@ export const classroomNavItems: NavItem[] = [
 const ClassroomDashboardPage: React.FC = () => {
   return (
     <Layout header={"CLASSROOM"} navItems={classroomNavItems}>
-      <div className="mt-6 flex flex-col gap-6 mx-6"></div>
+      <div className="mt-6 flex flex-col gap-6 mx-6">
+        <ClassroomCard />
+      </div>
     </Layout>
   );
 };

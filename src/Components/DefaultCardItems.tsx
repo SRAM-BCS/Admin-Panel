@@ -18,6 +18,11 @@ export type FacultyCardProperties = {
 export type AdminCardProperties = {
   email: string;
 };
+
+export type ClassroomCardProperties = {
+  classRoom: string;
+  qrCode: string;
+};
 export const DefaultCardItems: CardProperties[] = [
   {
     name: "Deepak Rai",
@@ -34,7 +39,7 @@ export const DefaultCardItems: CardProperties[] = [
 export const DefaultFacultyCardItems: FacultyCardProperties[] = [
   {
     name: "Aaroh Srivastava",
-    email: "bcs_2021022@iiitm.ac.in", 
+    email: "bcs_2021022@iiitm.ac.in",
     code: "AS",
   },
 ];
@@ -42,5 +47,13 @@ export const DefaultFacultyCardItems: FacultyCardProperties[] = [
 export const DefaultAdminCardItems: AdminCardProperties[] = [
   {
     email: "bcs_2021001@iiitm.ac.in",
+  },
+];
+
+export const DefaultClassroomCardItems: ClassroomCardProperties[] = [
+  {
+    classRoom: "B-205",
+    qrCode:
+      "https://res.cloudinary.com/dbuut0gfp/image/upload/v1690187566/gii16sepleuvslnnwv50.jpg",
   },
 ];
