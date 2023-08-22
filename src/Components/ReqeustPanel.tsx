@@ -29,22 +29,26 @@ const RequestPanelPage: React.FC = () => {
   const [requests, setRequests] = useState([]);
   useEffect(() => {
     async function getRequests(token: string) {
-      const response = await fetch(
-        process.env.REACT_APP_BACKEND_URL + "/admin/student/status/pending",
-        {
-          method: "GET",
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: token,
-          },
+      try {
+        const response = await fetch(
+          process.env.REACT_APP_BACKEND_URL + "/admin/student/status/pending",
+          {
+            method: "GET",
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: token,
+            },
+          }
+        );
+        if (response.ok) {
+          const requestData = await response.json();
+          setRequests(requestData);
+          console.log(requestData);
+        } else {
+          throw new Error("error in API call");
         }
-      );
-      if (response.ok) {
-        const requestData = await response.json();
-        setRequests(requestData);
-        console.log(requestData);
-      } else {
-        throw new Error("error in API call");
+      } catch (e: any) {
+        alert(e.message);
       }
     }
     const token = getToken();
@@ -60,10 +64,9 @@ const RequestPanelPage: React.FC = () => {
       <div className="p-9  grid lg:gap-4 lg:grid-cols-4 md:gap-3 md:grid-cols-3 sm:gap-4 sm:grid-cols-1">
         {requests.length
           ? requests.map((request: any) => {
-              return <></>;
+              return <Card details={request} />;
             })
           : "No Requests"}
-        <Card />
       </div>
     </Layout>
   );

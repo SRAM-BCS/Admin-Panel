@@ -5,16 +5,39 @@ import { toast } from "react-toastify";
 import { getToken } from "../Services/GetToken";
 import CustomToast from "./Toast";
 const RequestCard = ({ details = DefaultCardItems[0], token = "" }) => {
-  const handleApiCall = async (status: number) => {};
+  const handleApiCall = async (status: number, roll: string) => {
+    try {
+      const response = await fetch(
+        process.env.REACT_APP_BACKEND_URL + "/admin/student/status/modify",
+        {
+          method: "POST",
+          body: JSON.stringify({ statusNum: status, roll }),
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: token,
+          },
+        }
+      );
+      if (response.ok) {
+        const requestData = await response.json();
+        alert("Student request status updated successfully");
+        console.log(requestData);
+      } else {
+        throw new Error("error in API call");
+      }
+    } catch (e: any) {
+      alert(e.message);
+    }
+  };
 
-  const handleClick = (status: number) => {
+  const handleClick = (status: number, roll: string) => {
     toast(
       <CustomToast
         text={`Are you sure you want to ${
           status ? "Accept" : "Reject"
         } this Request?`}
         onYesClick={() => {
-          handleApiCall(status);
+          handleApiCall(status, roll);
         }}
         onNoClick={() => {
           alert("no");
@@ -23,6 +46,7 @@ const RequestCard = ({ details = DefaultCardItems[0], token = "" }) => {
       { position: "top-center", autoClose: false }
     );
   };
+
   return (
     <Card>
       <div className="flex justify-end px-4 pt-4">
@@ -30,7 +54,7 @@ const RequestCard = ({ details = DefaultCardItems[0], token = "" }) => {
           <Dropdown.Item>
             <div
               className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-600 dark:hover:text-white"
-              onClick={() => handleClick(1)}
+              onClick={() => handleClick(1, details.roll)}
             >
               <p>Accept</p>
             </div>
@@ -38,7 +62,7 @@ const RequestCard = ({ details = DefaultCardItems[0], token = "" }) => {
           <Dropdown.Item>
             <div
               className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-600 dark:hover:text-white"
-              onClick={() => handleClick(0)}
+              onClick={() => handleClick(0, details.roll)}
             >
               <p>Deny</p>
             </div>
