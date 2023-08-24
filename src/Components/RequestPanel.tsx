@@ -19,7 +19,7 @@ export const studentNavItems: NavItem[] = [
     icon: <UserIcon className="w-6 h-6" />,
   },
   {
-    label: "Reqeust Panel",
+    label: "Request Panel",
     href: "/student/request-panel",
     icon: <InboxIcon className="w-6 h-6" />,
   },

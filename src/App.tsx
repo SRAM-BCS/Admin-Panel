@@ -13,7 +13,7 @@ import Login from "./Components/Login";
 import Navbar from "./Components/Navbar";
 import StudentDashboard from "./Components/StudentDashboard";
 import Layout from "./Components/Layout";
-import RequestPanelPage from "./Components/ReqeustPanel";
+import RequestPanelPage from "./Components/RequestPanel";
 import FacultyDashboardPage from "./Components/FacultyDashboard";
 import FacultyAddPage from "./Components/AddFaculty";
 import AdminDashboardPage from "./Components/AdminDashboard";
@@ -61,7 +61,7 @@ function App() {
           />
           <Route path="/batch-dashboard" element={<BatchDashboardPage />} />
           <Route path="/course-dashboard" element={<CourseDashboardPage />} />
-          <Route path="/fcb-dashboard" element={<FCBDashboardPage />} />
+          {/* <Route path="/fcb-dashboard" element={<FCBDashboardPage />} /> */}
         </Routes>
       </BrowserRouter>
       <ToastContainer />

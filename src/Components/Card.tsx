@@ -78,7 +78,7 @@ const RequestCard = ({ details = DefaultCardItems[0], token = "" }) => {
             alt="Profile image"
             className="mb-3 rounded-full shadow-lg"
             height="96"
-            src={details?.profileImage}
+            src={details?.profileImage.substr(13)}
             width="96"
           />
         </div>
@@ -98,7 +98,7 @@ const RequestCard = ({ details = DefaultCardItems[0], token = "" }) => {
         </div>
         <div className="flex flex-row gap-2">
           <label className="font-bold">ID Proof-</label>
-          <a href={details?.idImage} target="_blank">
+          <a href={details?.idImage.substr(13)} target="_blank">
             <span>View</span>
           </a>
         </div>
