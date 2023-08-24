@@ -24,8 +24,13 @@ export type ClassroomCardProperties = {
   qrCode: string;
 };
 
-export type BatchAndCourseCardProperties = {
+export type BatchCardProperties = {
   title: string;
+  code: string;
+};
+
+export type CourseCardProperties = {
+  name: string;
   code: string;
 };
 
@@ -69,9 +74,16 @@ export const DefaultClassroomCardItems: ClassroomCardProperties[] = [
   },
 ];
 
-export const DefaultBatchAndCourseCardItems: BatchAndCourseCardProperties[] = [
+export const DefaultBatchCardItems: BatchCardProperties[] = [
   {
     title: "2021BCS",
+    code: "2021",
+  },
+];
+
+export const DefaultCourseCardItems: CourseCardProperties[] = [
+  {
+    name: "2021BCS",
     code: "2021",
   },
 ];

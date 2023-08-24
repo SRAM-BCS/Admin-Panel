@@ -27,7 +27,7 @@ const GenerateQR: React.FC = () => {
         );
         if (response.ok) {
           const requestData = await response.json();
-          alert("Successfully added course");
+          alert("Successfully generated QR code for Classroom " + name);
           setName("");
         } else {
           throw new Error("error in API call");

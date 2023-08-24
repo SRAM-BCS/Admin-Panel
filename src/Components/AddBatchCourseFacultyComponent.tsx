@@ -13,14 +13,18 @@ const AddBatchCourseFacultyComponent: React.FC = () => {
   const authCtx = useAuth();
   const handleAddLogic = async () => {
     try {
-      if (!batch) {
+      if (!batch || !course || !faculty) {
         alert("Please fill all the fields");
       } else {
         const response = await fetch(
-          process.env.REACT_APP_BACKEND_URL + "/admin/qr/generate",
+          process.env.REACT_APP_BACKEND_URL + "/faculty/batch/course",
           {
             method: "POST",
-            body: JSON.stringify({ classRoom: batch }),
+            body: JSON.stringify({
+              batchCode: batch,
+              courseCode: course,
+              facultyCode: faculty,
+            }),
             headers: {
               "Content-Type": "application/json",
               Authorization: token,
@@ -29,14 +33,16 @@ const AddBatchCourseFacultyComponent: React.FC = () => {
         );
         if (response.ok) {
           const requestData = await response.json();
-          alert("Successfully added course");
+          alert(requestData.message);
           setBatch("");
+          setCourse("");
+          setFaculty("");
         } else {
           throw new Error("error in API call");
         }
       }
     } catch (e) {
-      alert("Error in adding course");
+      alert("Error in adding API call");
       window.location.reload();
     }
   };
