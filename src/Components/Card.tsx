@@ -5,8 +5,10 @@ import { toast } from "react-toastify";
 import { getToken } from "../Services/GetToken";
 import CustomToast from "./Toast";
 const RequestCard = ({ details = DefaultCardItems[0], token = "" }) => {
-  const handleApiCall = async (status: number, roll: string) => {
+  const handleApiCall = async (status: string, roll: string) => {
     try {
+      console.log(status, roll);
+      console.log(token);
       const response = await fetch(
         process.env.REACT_APP_BACKEND_URL + "/admin/student/status/modify",
         {
@@ -21,6 +23,7 @@ const RequestCard = ({ details = DefaultCardItems[0], token = "" }) => {
       if (response.ok) {
         const requestData = await response.json();
         alert("Student request status updated successfully");
+        window.location.reload();
         console.log(requestData);
       } else {
         throw new Error("error in API call");
@@ -37,7 +40,7 @@ const RequestCard = ({ details = DefaultCardItems[0], token = "" }) => {
           status ? "Accept" : "Reject"
         } this Request?`}
         onYesClick={() => {
-          handleApiCall(status, roll);
+          handleApiCall(status.toString(), roll);
         }}
         onNoClick={() => {
           alert("no");

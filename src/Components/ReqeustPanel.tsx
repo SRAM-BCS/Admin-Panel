@@ -26,6 +26,7 @@ export const studentNavItems: NavItem[] = [
 ];
 const RequestPanelPage: React.FC = () => {
   const authCtx = useAuth();
+  const [jwt, setjwt] = useState("");
   const [requests, setRequests] = useState([]);
   useEffect(() => {
     async function getRequests(token: string) {
@@ -52,6 +53,7 @@ const RequestPanelPage: React.FC = () => {
       }
     }
     const token = getToken();
+    setjwt(token);
     if (!token) {
       alert("No token found");
       authCtx.logout();
@@ -64,7 +66,7 @@ const RequestPanelPage: React.FC = () => {
       <div className="p-9  grid lg:gap-4 lg:grid-cols-4 md:gap-3 md:grid-cols-3 sm:gap-4 sm:grid-cols-1">
         {requests.length
           ? requests.map((request: any) => {
-              return <Card details={request} />;
+              return <Card details={request} token={jwt} />;
             })
           : "No Requests"}
       </div>
