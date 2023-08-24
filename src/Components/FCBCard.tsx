@@ -3,6 +3,7 @@ import { DefaultFCBCardItems } from "./DefaultCardItems";
 import { Card } from "flowbite-react";
 
 const FCBCard = ({ details = DefaultFCBCardItems[0] }) => {
+  const [isOpen, setIsOpen] = React.useState(false);
   return (
     <Card>
       <div className="text-left">
